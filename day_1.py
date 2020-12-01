@@ -11,7 +11,7 @@ def day_1_question_1(input_file, sum):
             print(dict_nums[x],sum-dict_nums[x])
             return dict_nums[x] * (sum-dict_nums[x])
 
-print(day_1_question_1("day_1_q1.txt", 2020))
+
 
 def day_1_question_2(input_file, sum):
     with open(input_file) as text_file:
@@ -26,4 +26,6 @@ def day_1_question_2(input_file, sum):
             if sum - dict_nums[x] - dict_nums[y] in dict_nums.values():
                 return dict_nums[x] * dict_nums[y] * (sum - dict_nums[x] - dict_nums[y])
 
-print(day_1_question_2("day_1_q1.txt", 2020))
+if __name__ == "__main__":
+    print(day_1_question_1("day_1_q1.txt", 2020))
+    print(day_1_question_2("day_1_q1.txt", 2020))
