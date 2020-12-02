@@ -1,3 +1,4 @@
+
 def day_1_question_1(input_file, sum):
     with open(input_file) as text_file:
         nums = [int(i) for i in text_file]
@@ -8,7 +9,7 @@ def day_1_question_1(input_file, sum):
         return False
     for x in range (len(dict_nums)):
         if (sum - dict_nums[x]) in dict_nums.values():
-            print(dict_nums[x],sum-dict_nums[x])
+
             return dict_nums[x] * (sum-dict_nums[x])
 
 
