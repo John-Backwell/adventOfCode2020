@@ -20,7 +20,7 @@ def day_1_q1(input_file : str, slope_right : int, slope_down: int):
         y += slope_right
     return total_trees
 
-def day_2_q2(input_file):
+def day_2_q2(input_file:str):
     return (day_1_q1(input_file, 1, 1)*day_1_q1(input_file, 3, 1)*day_1_q1(input_file, 5, 1)
     *day_1_q1(input_file, 7, 1)*day_1_q1("day_3.txt", 1, 2))
 
