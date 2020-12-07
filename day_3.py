@@ -4,7 +4,7 @@ def load_file(input_file: str):
     return data
 
 def propagate_slope(slope : [str], scale_factor: int):
-    ski_slope = [line * 100 for line in slope]
+    ski_slope = [line * scale_factor for line in slope]
     return ski_slope
 
 def day_1_q1(input_file : str, slope_right : int, slope_down: int):
