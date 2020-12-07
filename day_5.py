@@ -9,22 +9,26 @@ def load_file(input_file: str):
         data = data_file.read().splitlines()
     return data
 
+def parse_line(line : str):
+    commands_dict = {"F": lower, "B":upper, "R":upper, "L": lower}
+    FB = line[:-3]
+    RL = line[-3:]
+    max_row = [i for i in range (128)]
+    max_column = [i for i in range (8)]
+    for char in FB:
+        func = commands_dict.get(char)
+        max_row = func(max_row)
+    for char in RL:
+        func = commands_dict.get(char) 
+        max_column = func(max_column)
+    unique_id = calculate_unique_id(max_row[0], max_column[0])
+    return unique_id
+
 def day_5_q1(input_file: str):
     data = load_file(input_file)
-    commands_dict = {"F": lower, "B":upper, "R":upper, "L": lower}
     highest_id = 0
     for line in data:
-        FB = line[:-3]
-        RL = line[-3:]
-        max_row = [i for i in range (128)]
-        max_column = [i for i in range (8)]
-        for char in FB:
-            func = commands_dict.get(char)
-            max_row = func(max_row)
-        for char in RL:
-            func = commands_dict.get(char) 
-            max_column = func(max_column)
-        unique_id = calculate_unique_id(max_row[0], max_column[0])
+        unique_id = parse_line(line)
         if unique_id > highest_id:
             highest_id = unique_id
     return highest_id
@@ -34,20 +38,9 @@ def calculate_unique_id(row:int, column :int):
 
 def day_5_q2(input_file: str):
     data = load_file(input_file)
-    commands_dict = {"F": lower, "B":upper, "R":upper, "L": lower}
     id_list = []
     for line in data:
-        FB = line[:-3]
-        RL = line[-3:]
-        max_row = [i for i in range (128)]
-        max_column = [i for i in range (8)]
-        for char in FB:
-            func = commands_dict.get(char)
-            max_row = func(max_row)
-        for char in RL:
-            func = commands_dict.get(char) 
-            max_column = func(max_column)
-        unique_id = calculate_unique_id(max_row[0], max_column[0])
+        unique_id = parse_line(line)
         id_list.append(unique_id)
     return check_missing(id_list)
 
