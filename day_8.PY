@@ -49,7 +49,7 @@ def day_8_q2(input_file:str)-> int:
             if acc > 0:
                 return acc
         elif instruction == "nop":
-            instruction == "jmp"
+            new_instruction == "jmp"
             lines_copy = lines.copy()
             lines_copy[index] == new_instruction + tail
             acc = check_loop(lines_copy,visited_lines, acc, target_index )
@@ -60,8 +60,7 @@ def check_loop(lines, visited_lines, acc, target_index):
     x = 0
     while x < len(lines):
             if x in visited_lines:
-                acc = 0
-                return acc
+                return 0
             visited_lines.append(x)
             instruction = lines[x][0:3]
             operation = lines[x][4:]
