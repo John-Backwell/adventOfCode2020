@@ -1,3 +1,5 @@
+
+
 def load_file(input_file: str)-> [str]:
     with open(input_file) as text_file:
         nums = [int(i) for i in text_file]
@@ -17,4 +19,13 @@ def day_10_q1(input_file: str)->int:
     num_3_jump +=1
     return num_1_jump * num_3_jump
 
-print(day_10_q1("day_10.txt"))
+def day_10_q2(input_file: str):
+    nums = load_file(input_file)
+    nums.append(0)
+    nums.append(max(nums)+3)
+    nums.sort()
+    permutations = [1]+[0]*nums[-1]
+    for i in nums[1:]:
+            permutations[i] = permutations[i-1] + permutations[i-2] + permutations[i-3]
+    return permutations[-1]
+        
